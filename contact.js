@@ -1,6 +1,7 @@
 // Configuración de EmailJS
 (function () {
-  emailjs.init("TU_PUBLIC_KEY_AQUI"); // Reemplaza con tu Public Key de EmailJS
+  emailjs.init("pORWEzBp4OPe4K78m"); // Public Key de EmailJS
+  console.log("EmailJS inicializado con Public Key:", "pORWEzBp4OPe4K78m");
 })();
 
 // Función para verificar reCAPTCHA
@@ -42,15 +43,23 @@ function submitForm(event) {
     recaptcha_response: grecaptcha.getResponse(),
   };
 
+  console.log("=== DIAGNÓSTICO EMAILJS ===");
+  console.log("Template Params:", templateParams);
+  console.log("Service ID:", "service_0hddnc8");
+  console.log("Template ID:", "template_6pu38wm");
+  console.log("Public Key:", "pORWEzBp4OPe4K78m");
+  console.log("EmailJS disponible:", typeof emailjs !== "undefined");
+  console.log("reCAPTCHA response:", grecaptcha.getResponse());
+
   // Enviar email usando EmailJS
   emailjs
     .send(
-      "service_n8z85st", // Tu Service ID
-      "template_6pu38wm", // Tu Template ID
+      "service_0hddnc8", // Service ID
+      "template_6pu38wm", // Template ID
       templateParams
     )
     .then(function (response) {
-      console.log("Email enviado exitosamente:", response);
+      console.log("✅ Email enviado exitosamente:", response);
 
       // Mostrar mensaje de éxito
       alert("¡Mensaje enviado con éxito! Te responderemos pronto.");
@@ -62,10 +71,25 @@ function submitForm(event) {
       grecaptcha.reset();
     })
     .catch(function (error) {
-      console.error("Error al enviar email:", error);
-      alert(
-        "Hubo un error al enviar el mensaje. Por favor, intenta nuevamente."
-      );
+      console.error("❌ Error detallado al enviar email:", error);
+      console.error("Código de error:", error.status);
+      console.error("Texto de error:", error.text);
+
+      let errorMessage = "Hubo un error al enviar el mensaje. ";
+
+      if (error.status === 400) {
+        errorMessage +=
+          "Error de configuración. Verifica tu Service ID y Template ID.";
+      } else if (error.status === 401) {
+        errorMessage += "Error de autenticación. Verifica tu Public Key.";
+      } else if (error.status === 403) {
+        errorMessage +=
+          "Acceso denegado. Verifica tu configuración de EmailJS.";
+      } else {
+        errorMessage += "Por favor, intenta nuevamente.";
+      }
+
+      alert(errorMessage);
     })
     .finally(function () {
       // Restaurar el botón
