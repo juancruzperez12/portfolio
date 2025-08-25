@@ -18,6 +18,8 @@ function verifyEmailRecaptcha() {
   showEmail();
 }
 
+
+
 function showEmail() {
   const emailButton = document.querySelector(".email-button");
   const recaptchaContainer = document.getElementById(
