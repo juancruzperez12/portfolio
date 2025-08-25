@@ -57,10 +57,7 @@ function verifyRecaptcha() {
 function onFormRecaptchaSuccess() {
   formRecaptchaVerified = true;
   console.log("✅ reCAPTCHA del formulario verificado");
-  console.log(
-    "Response del formulario:",
-    grecaptcha.getResponse("form-recaptcha")
-  );
+  console.log("Response del formulario:", grecaptcha.getResponse());
 }
 
 // Función para enviar el formulario con EmailJS
@@ -89,7 +86,7 @@ function submitForm(event) {
     from_email: document.getElementById("mail").value,
     subject: document.getElementById("asunto").value,
     message: document.getElementById("mensaje").value,
-    recaptcha_response: grecaptcha.getResponse("form-recaptcha"),
+    recaptcha_response: grecaptcha.getResponse(),
   };
 
   console.log("=== DIAGNÓSTICO EMAILJS ===");
@@ -98,7 +95,7 @@ function submitForm(event) {
   console.log("Template ID:", "template_6pu38wm");
   console.log("Public Key:", "pORWEzBp4OPe4K78m");
   console.log("EmailJS disponible:", typeof emailjs !== "undefined");
-  console.log("reCAPTCHA response:", grecaptcha.getResponse("form-recaptcha"));
+  console.log("reCAPTCHA response:", grecaptcha.getResponse());
 
   console.log("🚀 Intentando enviar email...");
 
@@ -143,7 +140,7 @@ function submitForm(event) {
       document.querySelector(".contact-form").reset();
 
       // Resetear reCAPTCHA y variable de estado
-      grecaptcha.reset("form-recaptcha");
+      grecaptcha.reset();
       formRecaptchaVerified = false;
     })
     .catch(function (error) {
@@ -181,7 +178,7 @@ function submitForm(event) {
 
       // Resetear variable de estado en caso de error
       if (!formRecaptchaVerified) {
-        grecaptcha.reset("form-recaptcha");
+        grecaptcha.reset();
       }
     });
 }

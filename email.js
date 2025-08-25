@@ -14,14 +14,14 @@ function showEmailRecaptcha() {
 
   // Resetear el reCAPTCHA del email para asegurar que esté limpio
   if (typeof grecaptcha !== "undefined") {
-    grecaptcha.reset("email-recaptcha");
+    grecaptcha.reset();
   }
 }
 
 function verifyEmailRecaptcha() {
   // Esta función se ejecuta automáticamente cuando el reCAPTCHA se completa
   console.log("✅ reCAPTCHA del email verificado");
-  console.log("Response del email:", grecaptcha.getResponse("email-recaptcha"));
+  console.log("Response del email:", grecaptcha.getResponse());
   showEmail();
 }
 
