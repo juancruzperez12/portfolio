@@ -96,7 +96,7 @@ function submitForm(event) {
 
       // Mostrar mensaje de éxito
       showNotification(
-        "¡Mensaje enviado con éxito! Te responderemos pronto.",
+        "¡Mensaje enviado con éxito! Te responderé pronto.",
         "success"
       );
 

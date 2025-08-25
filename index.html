@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
-    <title>Juan Cruz - Portfolio</title>
+    <title>Juan Cruz Perez</title>
     <link rel="shortcut icon" href="minilogo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,31 +17,35 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="index.html">
-        <img src="logo.png" class="logotipo" alt="logotipo" />
-      </a>
-      <div class="hamburger-menu" id="hamburger-menu">&#9776;</div>
-      <ul class="top-nav">
+      <div class="navbar-container">
+        <a href="index.html">
+          <img src="logo.png" class="logotipo" alt="logotipo" />
+        </a>
+        <div class="hamburger-menu" id="hamburger-menu">&#9776;</div>
+        <ul class="top-nav">
 
-        <li class="nav-item">
-          <a href="#sobre-mi" class="navlist">Sobre mi</a>
-        </li>
-        <li class="nav-item">
-          <a href="#habilidades" class="navlist">Habilidades</a>
-        </li>
-        <li class="nav-item">
-          <a href="#proyectos" class="navlist">Proyectos</a>
-        </li>
-                 <li class="nav-item">
-           <a href="#contacto" class="navlist-especial">Contacto</a>
-         </li>
-      </ul>
+          <li class="nav-item">
+            <a href="#sobre-mi" class="navlist">Sobre mi</a>
+          </li>
+          <li class="nav-item">
+            <a href="#habilidades" class="navlist">Habilidades</a>
+          </li>
+          <li class="nav-item">
+            <a href="#proyectos" class="navlist">Proyectos</a>
+          </li>
+                   <li class="nav-item">
+             <a href="#contacto" class="navlist-especial">Contacto</a>
+           </li>
+        </ul>
+      </div>
     </nav>
 
     <main class="main-content" id="inicio">
-      <div class="hero-section">
-        <h1 class="greeting">¡Hola!</h1>
-        <h2 class="name">Mi nombre es <br> Juan Cruz Perez.</h2>        <p class="description">Me apasiona crear experiencias digitales interactivas en la web.</p>
+      <div class="main-container">
+        <div class="hero-section">
+          <h1 class="greeting">¡Hola!</h1>
+          <h2 class="name">Mi nombre es <br> Juan Cruz Perez.</h2>        <p class="description">Me apasiona crear experiencias digitales interactivas en la web.</p>
+        </div>
       </div>
     </main>
 
@@ -160,32 +164,57 @@
             <li>Comunicación directa con clientes, desde la toma de requerimientos hasta la entrega final.</li>
           </ul>
           
-          <p class="project-conclusion">Este proyecto me permitió combinar el aspecto técnico con la gestión, lo que me dio una visión integral de cómo llevar adelante un producto digital desde la idea inicial hasta su puesta en línea.</p>
-        </div>
-      </div>
-    </section>
+                     <p class="project-conclusion">Este proyecto me permitió combinar el aspecto técnico con la gestión, lo que me dio una visión integral de cómo llevar adelante un producto digital desde la idea inicial hasta su puesta en línea.</p>
+           
+           <div class="github-section">
+             <h4 class="github-title">¿Te interesa ver más de mi trabajo?</h4>
+             <a href="https://github.com/juancruzperez12" target="_blank" rel="noopener noreferrer" class="github-link">
+               <img src="github.svg" alt="GitHub" class="github-icon">
+               <span class="github-text">Visita mi GitHub</span>
+             </a>
+           </div>
+         </div>
+       </div>
+     </section>
 
     <section class="contact-section" id="contacto">
       <div class="contact-container">
         <div class="contact-content">
-          <!-- Sección Redes Sociales -->
+                               <!-- Sección Enlaces -->
           <div class="social-section">
-            <h2 class="contact-title">Redes sociales</h2>
-            <div class="social-icons-container">
-              <a href="https://github.com/juancruzperez12" target="_blank" rel="noopener noreferrer" class="social-link">
-                <img src="github.svg" alt="GitHub" class="social-icon">
-                <span class="social-name">GitHub</span>
-              </a>
-              <a href="https://www.linkedin.com/in/perezjuancruz/" target="_blank" rel="noopener noreferrer" class="social-link">
-                <img src="linkedin white.png" alt="LinkedIn" class="social-icon">
-                <span class="social-name">LinkedIn</span>
-              </a>
-              <a href="https://x.com/juancruzperez_" target="_blank" rel="noopener noreferrer" class="social-link">
-                <img src="x.svg" alt="X (Twitter)" class="social-icon">
-                <span class="social-name">X (Twitter)</span>
-              </a>
+            <h2 class="contact-title">Enlaces</h2>
+             <div class="social-icons-container">
+                               <a href="https://www.linkedin.com/in/perezjuancruz/" target="_blank" rel="noopener noreferrer" class="social-link">
+                  <img src="linkedin white.png" alt="LinkedIn" class="social-icon">
+                  <span class="social-name">LinkedIn</span>
+                </a>
+                <a href="https://github.com/juancruzperez12" target="_blank" rel="noopener noreferrer" class="social-link">
+                  <img src="github.svg" alt="GitHub" class="social-icon">
+                  <span class="social-name">GitHub</span>
+                </a>
+                <a href="https://x.com/juancruzperez_" target="_blank" rel="noopener noreferrer" class="social-link">
+                   <img src="x.svg" alt="X (Twitter)" class="social-icon">
+                   <span class="social-name">X (Twitter)</span>
+                 </a>
+                                 <div class="email-section">
+                   <div class="email-button-container">
+                     <img src="gmail.svg" alt="Gmail" class="gmail-icon">
+                     <button class="email-button" onclick="showEmailRecaptcha()">
+                       <span class="email-button-text">Ver correo</span>
+                     </button>
+                   </div>
+                                     <div id="email-recaptcha-container" class="email-recaptcha-container" style="display: none;">
+                     <div class="g-recaptcha" data-sitekey="6LdRH7ErAAAAAJg1O4x_7RNNSU3b5LZ1iwJwMiUo" data-callback="verifyEmailRecaptcha"></div>
+                   </div>
+                  <div id="email-display" class="email-display" style="display: none;">
+                    <span class="email-text">perezjuancruzok@gmail.com</span>
+                    <button class="copy-button" onclick="copyEmail()">
+                      <span class="copy-text">Copiar</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
 
           <!-- Sección Formulario de Contacto -->
           <div class="form-section">
@@ -214,11 +243,14 @@
     </section>
 
     <div class="location-signature">
-      <p>Buenos Aires, Argentina.</p>
+      <div class="main-container">
+        <p>Buenos Aires, Argentina.</p>
+      </div>
     </div>
 
     <footer>
-      <div class="contenedor-footer">
+      <div class="footer-container">
+        <div class="contenedor-footer">
                   <div class="lista-footer">
             <a href="#inicio" class="footer-link">Inicio</a>
             <a href="#sobre-mi" class="footer-link">Sobre mi</a>
@@ -226,9 +258,11 @@
             <a href="#proyectos" class="footer-link">Proyectos</a>
                          <a href="#contacto" class="footer-link">Contacto</a>
           </div>
+        </div>
       </div>
     </footer>
-     <script src="burger.js"></script>
-   <script src="contact.js"></script>
+          <script src="burger.js"></script>
+    <script src="contact.js"></script>
+    <script src="email.js"></script>
 
  </html>
