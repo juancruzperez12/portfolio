@@ -301,7 +301,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 100px;
+  padding-top: 60px;
   position: relative;
 }
 
@@ -336,6 +336,7 @@ html {
 
 .name-highlight {
   color: #1976d2;
+  font-size: 1.2em;
 }
 
 .description {
