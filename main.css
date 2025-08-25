@@ -697,6 +697,250 @@ html {
 }
 /* CIERRE Sección Proyectos */
 
+/* INICIA Sección Contacto */
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 60px 60px 60px;
+  background-color: #0d0d0d;
+}
+
+.contact-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-title {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 40px 0;
+  line-height: 1.2;
+}
+
+/* Sección Redes Sociales */
+.social-section {
+  text-align: center;
+}
+
+.social-icons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 15px 25px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.social-link:hover {
+  background-color: #ffffff;
+  color: #0d0d0d;
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  filter: brightness(0) invert(0);
+}
+
+.social-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Sección Formulario */
+.form-section {
+  text-align: left;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 15px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #c0c0c0;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.g-recaptcha {
+  transform: scale(0.9);
+  transform-origin: left center;
+}
+
+.btn-recaptcha,
+.btn-enviar {
+  padding: 12px 25px;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn-recaptcha:hover,
+.btn-enviar:hover {
+  background-color: #ffffff;
+  color: #0d0d0d;
+}
+
+.btn-enviar {
+  background-color: #ffffff;
+  color: #0d0d0d;
+}
+
+.btn-enviar:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .contact-section {
+    padding: 80px 20px 40px 20px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .social-link {
+    min-width: 180px;
+    padding: 12px 20px;
+  }
+
+  .social-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .social-name {
+    font-size: 1rem;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .g-recaptcha {
+    transform: scale(0.8);
+    transform-origin: left center;
+  }
+
+  .btn-enviar {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .contact-title {
+    font-size: 4rem;
+    margin-bottom: 50px;
+  }
+
+  .social-link {
+    min-width: 250px;
+    padding: 20px 30px;
+  }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .social-name {
+    font-size: 1.3rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+
+  .btn-recaptcha,
+  .btn-enviar {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+  }
+}
+/* CIERRE Sección Contacto */
+
 /* INICIA Firma de ubicación */
 .location-signature {
   position: absolute;

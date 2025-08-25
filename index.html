@@ -12,6 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
+              <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </head>
   <body>
     <nav class="navbar">
@@ -30,9 +32,9 @@
         <li class="nav-item">
           <a href="#proyectos" class="navlist">Proyectos</a>
         </li>
-        <li class="nav-item">
-          <a href="especial.html" class="navlist-especial">Contacto</a>
-        </li>
+                 <li class="nav-item">
+           <a href="#contacto" class="navlist-especial">Contacto</a>
+         </li>
       </ul>
     </nav>
 
@@ -163,6 +165,54 @@
       </div>
     </section>
 
+    <section class="contact-section" id="contacto">
+      <div class="contact-container">
+        <div class="contact-content">
+          <!-- Sección Redes Sociales -->
+          <div class="social-section">
+            <h2 class="contact-title">Redes sociales</h2>
+            <div class="social-icons-container">
+              <a href="https://github.com/juancruzperez12" target="_blank" rel="noopener noreferrer" class="social-link">
+                <img src="github.svg" alt="GitHub" class="social-icon">
+                <span class="social-name">GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/perezjuancruz/" target="_blank" rel="noopener noreferrer" class="social-link">
+                <img src="linkedin white.png" alt="LinkedIn" class="social-icon">
+                <span class="social-name">LinkedIn</span>
+              </a>
+              <a href="https://x.com/juancruzperez_" target="_blank" rel="noopener noreferrer" class="social-link">
+                <img src="x.svg" alt="X (Twitter)" class="social-icon">
+                <span class="social-name">X (Twitter)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Sección Formulario de Contacto -->
+          <div class="form-section">
+            <h2 class="contact-title">Contacto</h2>
+            <form class="contact-form">
+              <div class="form-group">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="mail" name="mail" placeholder="Mail" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="asunto" name="asunto" placeholder="Asunto" required>
+              </div>
+              <div class="form-group">
+                <textarea id="mensaje" name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
+              </div>
+                             <div class="form-buttons">
+                 <div class="g-recaptcha" data-sitekey="6LdRH7ErAAAAAJg1O4x_7RNNSU3b5LZ1iwJwMiUo"></div>
+                 <button type="submit" class="btn-enviar">Enviar</button>
+               </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="location-signature">
       <p>Buenos Aires, Argentina.</p>
     </div>
@@ -174,10 +224,11 @@
             <a href="#sobre-mi" class="footer-link">Sobre mi</a>
             <a href="#habilidades" class="footer-link">Habilidades</a>
             <a href="#proyectos" class="footer-link">Proyectos</a>
-            <a href="especial.html" class="footer-link">Contacto</a>
+                         <a href="#contacto" class="footer-link">Contacto</a>
           </div>
       </div>
     </footer>
-  <script src="burger.js"></script>
+     <script src="burger.js"></script>
+   <script src="contact.js"></script>
 
-</html>
+ </html>
