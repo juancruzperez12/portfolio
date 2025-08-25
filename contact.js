@@ -34,10 +34,12 @@ function showNotification(message, type = "info") {
   }, 4000);
 }
 
-// Función para verificar reCAPTCHA
+// Variable global para almacenar el estado del reCAPTCHA del formulario
+let formRecaptchaVerified = false;
+
+// Función para verificar reCAPTCHA del formulario
 function verifyRecaptcha() {
-  const response = grecaptcha.getResponse();
-  if (response.length === 0) {
+  if (!formRecaptchaVerified) {
     showNotification(
       "Por favor, completa el reCAPTCHA antes de enviar el formulario.",
       "error"
@@ -45,6 +47,12 @@ function verifyRecaptcha() {
     return false;
   }
   return true;
+}
+
+// Callback para cuando se completa el reCAPTCHA del formulario
+function onFormRecaptchaSuccess() {
+  formRecaptchaVerified = true;
+  console.log("✅ reCAPTCHA del formulario verificado");
 }
 
 // Función para enviar el formulario con EmailJS
@@ -103,8 +111,9 @@ function submitForm(event) {
       // Limpiar el formulario
       document.querySelector(".contact-form").reset();
 
-      // Resetear reCAPTCHA
+      // Resetear reCAPTCHA y variable de estado
       grecaptcha.reset();
+      formRecaptchaVerified = false;
     })
     .catch(function (error) {
       console.error("❌ Error detallado al enviar email:", error);
@@ -131,6 +140,11 @@ function submitForm(event) {
       // Restaurar el botón
       submitButton.textContent = originalText;
       submitButton.disabled = false;
+
+      // Resetear variable de estado en caso de error
+      if (!formRecaptchaVerified) {
+        grecaptcha.reset();
+      }
     });
 }
 
