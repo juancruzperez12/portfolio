@@ -1,7 +1,11 @@
 // Configuración de EmailJS
 (function () {
-  emailjs.init("pORWEzBp4OPe4K78m"); // Public Key de EmailJS
-  console.log("EmailJS inicializado con Public Key:", "pORWEzBp4OPe4K78m");
+  if (typeof emailjs !== "undefined") {
+    emailjs.init("pORWEzBp4OPe4K78m"); // Public Key de EmailJS
+    console.log("✅ EmailJS inicializado con Public Key:", "pORWEzBp4OPe4K78m");
+  } else {
+    console.error("❌ EmailJS no está disponible");
+  }
 })();
 
 // Función para mostrar notificaciones
@@ -94,15 +98,38 @@ function submitForm(event) {
   console.log("Template ID:", "template_6pu38wm");
   console.log("Public Key:", "pORWEzBp4OPe4K78m");
   console.log("EmailJS disponible:", typeof emailjs !== "undefined");
-  console.log("reCAPTCHA response:", grecaptcha.getResponse());
+  console.log("reCAPTCHA response:", grecaptcha.getResponse("form-recaptcha"));
 
-  // Enviar email usando EmailJS
-  emailjs
-    .send(
-      "service_0hddnc8", // Service ID
-      "template_6pu38wm", // Template ID
-      templateParams
-    )
+  console.log("🚀 Intentando enviar email...");
+
+  // Verificar que EmailJS esté disponible
+  if (typeof emailjs === "undefined") {
+    showNotification(
+      "Error: EmailJS no está disponible. Recarga la página.",
+      "error"
+    );
+    submitButton.textContent = originalText;
+    submitButton.disabled = false;
+    return;
+  }
+
+  // Crear una promesa con timeout
+  const emailPromise = emailjs.send(
+    "service_0hddnc8", // Service ID
+    "template_6pu38wm", // Template ID
+    templateParams
+  );
+
+  // Agregar timeout de 30 segundos
+  const timeoutPromise = new Promise((_, reject) => {
+    setTimeout(
+      () => reject(new Error("Timeout: La solicitud tardó demasiado")),
+      30000
+    );
+  });
+
+  // Ejecutar con timeout
+  Promise.race([emailPromise, timeoutPromise])
     .then(function (response) {
       console.log("✅ Email enviado exitosamente:", response);
 
@@ -121,12 +148,16 @@ function submitForm(event) {
     })
     .catch(function (error) {
       console.error("❌ Error detallado al enviar email:", error);
-      console.error("Código de error:", error.status);
-      console.error("Texto de error:", error.text);
+      console.error("Tipo de error:", typeof error);
+      console.error("Mensaje de error:", error.message);
+      console.error("Stack trace:", error.stack);
 
       let errorMessage = "Hubo un error al enviar el mensaje. ";
 
-      if (error.status === 400) {
+      if (error.message && error.message.includes("Timeout")) {
+        errorMessage +=
+          "La solicitud tardó demasiado. Verifica tu conexión a internet.";
+      } else if (error.status === 400) {
         errorMessage +=
           "Error de configuración. Verifica tu Service ID y Template ID.";
       } else if (error.status === 401) {
@@ -134,8 +165,11 @@ function submitForm(event) {
       } else if (error.status === 403) {
         errorMessage +=
           "Acceso denegado. Verifica tu configuración de EmailJS.";
+      } else if (error.status === 429) {
+        errorMessage +=
+          "Demasiadas solicitudes. Intenta nuevamente en unos minutos.";
       } else {
-        errorMessage += "Por favor, intenta nuevamente.";
+        errorMessage += "Error desconocido. Por favor, intenta nuevamente.";
       }
 
       showNotification(errorMessage, "error");
