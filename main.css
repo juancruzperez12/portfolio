@@ -862,6 +862,72 @@ html {
   color: #ffffff;
 }
 
+/* NOTIFICACIÓN MINIMALISTA */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 1000;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+  max-width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.success {
+  background-color: #10b981;
+  color: #ffffff;
+  border-left: 4px solid #059669;
+}
+
+.notification.error {
+  background-color: #ef4444;
+  color: #ffffff;
+  border-left: 4px solid #dc2626;
+}
+
+.notification.info {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border-left: 4px solid #2563eb;
+}
+
+/* Responsive para pantallas medianas */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .social-link {
+    min-width: 180px;
+    padding: 12px 20px;
+  }
+
+  .social-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .social-name {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive para móviles */
 @media (max-width: 767px) {
   .contact-section {
     padding: 80px 20px 40px 20px;
@@ -914,12 +980,29 @@ html {
     width: 100%;
     margin-top: 15px;
   }
+
+  /* Notificación en móvil */
+  .notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    transform: translateY(-100px);
+  }
+
+  .notification.show {
+    transform: translateY(0);
+  }
 }
 
+/* Responsive para pantallas grandes */
 @media (min-width: 1921px) {
+  .contact-container {
+    max-width: 1400px;
+  }
+
   .contact-title {
-    font-size: 4rem;
-    margin-bottom: 50px;
+    font-size: 3.5rem;
   }
 
   .social-link {
@@ -933,18 +1016,6 @@ html {
   }
 
   .social-name {
-    font-size: 1.3rem;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    padding: 20px;
-    font-size: 1.2rem;
-  }
-
-  .btn-recaptcha,
-  .btn-enviar {
-    padding: 15px 30px;
     font-size: 1.2rem;
   }
 }

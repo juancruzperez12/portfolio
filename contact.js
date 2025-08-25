@@ -4,11 +4,44 @@
   console.log("EmailJS inicializado con Public Key:", "pORWEzBp4OPe4K78m");
 })();
 
+// Función para mostrar notificaciones
+function showNotification(message, type = "info") {
+  // Remover notificaciones existentes
+  const existingNotifications = document.querySelectorAll(".notification");
+  existingNotifications.forEach((notification) => notification.remove());
+
+  // Crear nueva notificación
+  const notification = document.createElement("div");
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+
+  // Agregar al DOM
+  document.body.appendChild(notification);
+
+  // Mostrar con animación
+  setTimeout(() => {
+    notification.classList.add("show");
+  }, 100);
+
+  // Ocultar automáticamente después de 4 segundos
+  setTimeout(() => {
+    notification.classList.remove("show");
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 300);
+  }, 4000);
+}
+
 // Función para verificar reCAPTCHA
 function verifyRecaptcha() {
   const response = grecaptcha.getResponse();
   if (response.length === 0) {
-    alert("Por favor, completa el reCAPTCHA antes de enviar el formulario.");
+    showNotification(
+      "Por favor, completa el reCAPTCHA antes de enviar el formulario.",
+      "error"
+    );
     return false;
   }
   return true;
@@ -62,7 +95,10 @@ function submitForm(event) {
       console.log("✅ Email enviado exitosamente:", response);
 
       // Mostrar mensaje de éxito
-      alert("¡Mensaje enviado con éxito! Te responderemos pronto.");
+      showNotification(
+        "¡Mensaje enviado con éxito! Te responderemos pronto.",
+        "success"
+      );
 
       // Limpiar el formulario
       document.querySelector(".contact-form").reset();
@@ -89,7 +125,7 @@ function submitForm(event) {
         errorMessage += "Por favor, intenta nuevamente.";
       }
 
-      alert(errorMessage);
+      showNotification(errorMessage, "error");
     })
     .finally(function () {
       // Restaurar el botón
@@ -132,27 +168,27 @@ function validateRequiredFields() {
   const mensaje = document.getElementById("mensaje").value.trim();
 
   if (!nombre) {
-    alert("Por favor, ingresa tu nombre.");
+    showNotification("Por favor, ingresa tu nombre.", "error");
     return false;
   }
 
   if (!mail) {
-    alert("Por favor, ingresa tu email.");
+    showNotification("Por favor, ingresa tu email.", "error");
     return false;
   }
 
   if (!validateEmail(mail)) {
-    alert("Por favor, ingresa un email válido.");
+    showNotification("Por favor, ingresa un email válido.", "error");
     return false;
   }
 
   if (!asunto) {
-    alert("Por favor, ingresa un asunto.");
+    showNotification("Por favor, ingresa un asunto.", "error");
     return false;
   }
 
   if (!mensaje) {
-    alert("Por favor, ingresa un mensaje.");
+    showNotification("Por favor, ingresa un mensaje.", "error");
     return false;
   }
 
