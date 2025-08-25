@@ -53,6 +53,10 @@ function verifyRecaptcha() {
 function onFormRecaptchaSuccess() {
   formRecaptchaVerified = true;
   console.log("✅ reCAPTCHA del formulario verificado");
+  console.log(
+    "Response del formulario:",
+    grecaptcha.getResponse("form-recaptcha")
+  );
 }
 
 // Función para enviar el formulario con EmailJS
@@ -81,7 +85,7 @@ function submitForm(event) {
     from_email: document.getElementById("mail").value,
     subject: document.getElementById("asunto").value,
     message: document.getElementById("mensaje").value,
-    recaptcha_response: grecaptcha.getResponse(),
+    recaptcha_response: grecaptcha.getResponse("form-recaptcha"),
   };
 
   console.log("=== DIAGNÓSTICO EMAILJS ===");
@@ -112,7 +116,7 @@ function submitForm(event) {
       document.querySelector(".contact-form").reset();
 
       // Resetear reCAPTCHA y variable de estado
-      grecaptcha.reset();
+      grecaptcha.reset("form-recaptcha");
       formRecaptchaVerified = false;
     })
     .catch(function (error) {
@@ -143,7 +147,7 @@ function submitForm(event) {
 
       // Resetear variable de estado en caso de error
       if (!formRecaptchaVerified) {
-        grecaptcha.reset();
+        grecaptcha.reset("form-recaptcha");
       }
     });
 }

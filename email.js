@@ -11,14 +11,19 @@ function showEmailRecaptcha() {
   emailButton.style.display = "none";
   recaptchaContainer.style.display = "flex";
   emailDisplay.style.display = "none";
+
+  // Resetear el reCAPTCHA del email para asegurar que esté limpio
+  if (typeof grecaptcha !== "undefined") {
+    grecaptcha.reset("email-recaptcha");
+  }
 }
 
 function verifyEmailRecaptcha() {
   // Esta función se ejecuta automáticamente cuando el reCAPTCHA se completa
+  console.log("✅ reCAPTCHA del email verificado");
+  console.log("Response del email:", grecaptcha.getResponse("email-recaptcha"));
   showEmail();
 }
-
-
 
 function showEmail() {
   const emailButton = document.querySelector(".email-button");
