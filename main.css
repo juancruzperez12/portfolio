@@ -1225,7 +1225,7 @@ body.light .theme-toggle img {
   background-color: transparent;
   color: #ffffff;
   border: 1px solid #ffffff;
-  border-radius: 0.3em;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
@@ -1520,6 +1520,7 @@ body.light .theme-toggle img {
   .email-button {
     padding: 8px 16px;
     font-size: 0.9rem;
+    border-radius: 8px;
   }
 
   .email-recaptcha-container {
@@ -1607,6 +1608,7 @@ body.light .theme-toggle img {
   .email-button {
     padding: 15px 25px;
     font-size: 1.2rem;
+    border-radius: 8px;
   }
 
   .email-recaptcha-container {
