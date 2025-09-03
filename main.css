@@ -240,6 +240,10 @@ body.light .github-link:hover {
   background-color: #0d0d0d;
   color: #ffffff;
 }
+
+body.light .github-link:hover .github-icon {
+  filter: brightness(0) invert(1);
+}
 body.light .github-icon,
 body.light .skill-icon,
 body.light .social-icon,
