@@ -956,6 +956,16 @@ body.light .theme-toggle img {
   text-align: center;
 }
 
+.project-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 40px 0;
+}
+
+body.light .project-divider {
+  border-top-color: rgba(13, 13, 13, 0.12);
+}
+
 .github-title {
   color: #1976d2;
   font-size: 1.2rem;
