@@ -222,7 +222,6 @@ body.light .description,
 body.light .project-content,
 body.light .project-name,
 body.light .project-subtitle,
-body.light .skills-title,
 body.light .about-content,
 body.light .github-link,
 body.light .social-link,
@@ -768,6 +767,11 @@ body.light .theme-toggle img {
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
+}
+
+/* Nombres de herramientas negros en modo claro */
+body.light .skill-name {
+  color: #000000;
 }
 
 @media (max-width: 767px) {
