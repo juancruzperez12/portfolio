@@ -953,6 +953,185 @@ body.light .skill-name {
   font-style: italic;
 }
 
+.project-gallery {
+  margin: 0 0 40px 0;
+}
+
+.project-gallery-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1976d2;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.project-gallery-summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-gallery-summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.project-gallery[open] .project-gallery-summary::after {
+  transform: rotate(-135deg);
+}
+
+.project-gallery-content {
+  margin-top: 20px;
+}
+
+.gallery-subtitle {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 24px 0 14px 0;
+  line-height: 1.3;
+}
+
+.gallery-subtitle:first-child {
+  margin-top: 0;
+}
+
+body.light .gallery-subtitle {
+  color: #0d0d0d;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.gallery-item {
+  display: block;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5em;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  transition: border-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item:hover,
+.gallery-item:focus-visible {
+  border-color: #1976d2;
+  transform: scale(1.03);
+  opacity: 0.9;
+  outline: none;
+}
+
+body.light .gallery-item {
+  border-color: rgba(13, 13, 13, 0.2);
+}
+
+body.light .gallery-item:hover,
+body.light .gallery-item:focus-visible {
+  border-color: #1976d2;
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  padding: 40px;
+}
+
+.gallery-lightbox.is-open {
+  display: flex;
+}
+
+body.gallery-lightbox-active {
+  overflow: hidden;
+}
+
+.gallery-lightbox-figure {
+  margin: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.gallery-lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 0.5em;
+  object-fit: contain;
+}
+
+.gallery-lightbox-caption {
+  color: #ffffff;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.gallery-lightbox-close,
+.gallery-lightbox-prev,
+.gallery-lightbox-next {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.gallery-lightbox-close:hover,
+.gallery-lightbox-prev:hover,
+.gallery-lightbox-next:hover {
+  opacity: 0.7;
+}
+
+.gallery-lightbox-close {
+  top: 20px;
+  right: 24px;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.gallery-lightbox-prev,
+.gallery-lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  padding: 8px 12px;
+}
+
+.gallery-lightbox-prev {
+  left: 12px;
+}
+
+.gallery-lightbox-next {
+  right: 12px;
+}
+
 .github-section {
   margin-top: 40px;
   padding-top: 30px;
@@ -1058,6 +1237,27 @@ body.light .project-divider {
   .project-conclusion {
     font-size: 1rem;
     margin-bottom: 30px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+  }
+
+  .gallery-lightbox {
+    padding: 16px;
+  }
+
+  .gallery-lightbox-prev,
+  .gallery-lightbox-next {
+    font-size: 1.2rem;
+    padding: 6px 8px;
+  }
+
+  .gallery-lightbox-close {
+    top: 8px;
+    right: 12px;
+    font-size: 1.8rem;
   }
 
   .github-section {

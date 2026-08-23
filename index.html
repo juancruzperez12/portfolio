@@ -97,6 +97,52 @@
             Nació de un problema real que vi de cerca: un negocio perdiendo tiempo y clientes por no tener la agenda organizada. Esa fue mi forma de convertirlo en una solución concreta.
           </p>
 
+          <details class="project-gallery">
+            <summary class="project-gallery-summary">Capturas de pantalla</summary>
+            <div class="project-gallery-content">
+              <h5 class="gallery-subtitle">Panel de administración</h5>
+              <div class="gallery-grid">
+                <button type="button" class="gallery-item" data-caption="Panel de administración — vista 1">
+                  <img src="assets/img/turno-gallery/admin-1.png" alt="Panel de administración de Turnosoftware, vista 1" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Panel de administración — vista 2">
+                  <img src="assets/img/turno-gallery/admin-2.png" alt="Panel de administración de Turnosoftware, vista 2" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Panel de administración — vista 3">
+                  <img src="assets/img/turno-gallery/admin-3.png" alt="Panel de administración de Turnosoftware, vista 3" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Panel de administración — vista 4">
+                  <img src="assets/img/turno-gallery/admin-4.png" alt="Panel de administración de Turnosoftware, vista 4" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Panel de administración — vista 5">
+                  <img src="assets/img/turno-gallery/admin-5.png" alt="Panel de administración de Turnosoftware, vista 5" loading="lazy">
+                </button>
+              </div>
+
+              <h5 class="gallery-subtitle">Flujo del cliente</h5>
+              <div class="gallery-grid">
+                <button type="button" class="gallery-item" data-caption="Flujo del cliente — vista 1">
+                  <img src="assets/img/turno-gallery/cliente-1.png" alt="Flujo de reserva del cliente en Turnosoftware, vista 1" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Flujo del cliente — vista 2">
+                  <img src="assets/img/turno-gallery/cliente-2.png" alt="Flujo de reserva del cliente en Turnosoftware, vista 2" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Flujo del cliente — vista 3">
+                  <img src="assets/img/turno-gallery/cliente-3.png" alt="Flujo de reserva del cliente en Turnosoftware, vista 3" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Flujo del cliente — vista 4">
+                  <img src="assets/img/turno-gallery/cliente-4.png" alt="Flujo de reserva del cliente en Turnosoftware, vista 4" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Flujo del cliente — vista 4b">
+                  <img src="assets/img/turno-gallery/cliente-4-2.png" alt="Flujo de reserva del cliente en Turnosoftware, vista 4b" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" data-caption="Flujo del cliente — vista 5">
+                  <img src="assets/img/turno-gallery/cliente-5.png" alt="Flujo de reserva del cliente en Turnosoftware, vista 5" loading="lazy">
+                </button>
+              </div>
+            </div>
+          </details>
+
           <hr class="project-divider" />
 
           <div class="project-header">
@@ -287,6 +333,16 @@
       </div>
     </section>
 
+    <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
+      <button type="button" class="gallery-lightbox-close" aria-label="Cerrar">&times;</button>
+      <button type="button" class="gallery-lightbox-prev" aria-label="Imagen anterior">&#10094;</button>
+      <figure class="gallery-lightbox-figure">
+        <img class="gallery-lightbox-img" src="" alt="">
+        <figcaption class="gallery-lightbox-caption"></figcaption>
+      </figure>
+      <button type="button" class="gallery-lightbox-next" aria-label="Imagen siguiente">&#10095;</button>
+    </div>
+
     <div class="location-signature">
       <div class="main-container">
         <p>Buenos Aires, Argentina.</p>
@@ -309,6 +365,7 @@
   <script src="js/burger.js"></script>
     <script src="js/contact.js"></script>
     <script src="js/email.js"></script>
+    <script src="js/gallery.js"></script>
     <script>
       (function() {
         const body = document.body;
